@@ -1,0 +1,45 @@
+# A Practical Guide to Database Indexing
+
+*6 min read · databases, query optimization*
+
+## Introduction
+
+Over the past 17 months, our team has been tackling one of the most challenging problems in databases: how do you scale without sacrificing reliability? This post documents what we learned, what failed, and what ultimately worked.
+
+## The Problem
+
+We were running 26K requests per minute and seeing p99 latencies creep above acceptable thresholds. Initial profiling pointed to query optimization as the culprit.
+
+## What We Tried
+
+Our first approach was straightforward: throw more hardware at it. This bought us time but didn't address root causes. We then profiled more carefully and found the actual bottleneck was in our serialization layer.
+
+## The Solution
+
+After three weeks of experimentation, we landed on an approach that reduced overhead by 46% while keeping the codebase maintainable. The key insight was treating query optimization as a first-class concern from the beginning.
+
+## Lessons Learned
+
+1. Profile before optimizing — assumptions are expensive
+2. Small changes compound; don't underestimate incremental improvements
+3. Document your decisions, future-you will thank you
+
+*Total estimated read time based on ~823 words at 200 wpm.*
+
+## Site Navigation
+
+Medium | Read | Write | Membership | Sign In
+
+## Footer
+
+© 2024 TestDomain Publishing. | Help | Status | Writers
+
+## About the Author
+
+Senior Engineer at ExampleCorp. Writes about distributed systems, performance, and developer tooling. Occasional conference speaker.
+
+## Popular Posts
+
+- How We Scaled to 10M Users
+- The Hidden Cost of Microservices
+- Why We Moved Back to a Monolith
